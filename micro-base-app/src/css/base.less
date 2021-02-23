@@ -1,0 +1,23 @@
+@vm_fontsize: 108;
+@vm_design: 1080;
+.function {
+    .rem(@px) {
+        return: (@px / @vm_fontsize) * 1rem;
+    }
+}
+
+html {
+    font-size: (@vm_fontsize / (@vm_design / 2)) * 100vw;
+    // 同时，通过Media Queries 限制根元素最大最小值
+    @media screen and (max-width: 320px) {
+        font-size: 64px;
+    }
+    @media screen and (min-width: 540px) {
+        font-size: 108px;
+    }
+}
+
+body {
+    max-width: 1800px;
+    min-width: 320px;
+}
